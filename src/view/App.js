@@ -4,8 +4,6 @@ import {connect} from 'react-redux'
 
 import {actions} from 'state/reducer'
 
-const Circle = () => <circle r='50' fill='teal' stroke='black' />
-
 const mapStateToProps = (state) => ({
   matrix: state.matrix,
   dragging: state.dragging
@@ -27,7 +25,8 @@ export const Container = ({dispatch, matrix, dragging}) => {
       onWheel={onWheel}
     >
       <g transform={`matrix(${matrix.join(' ')})`}>
-        <Circle />
+        <circle r='50' fill='teal' stroke='black' />
+        <circle r='50' cx='150' cy='150' fill='teal' stroke='black' />
       </g>
     </svg>
   )

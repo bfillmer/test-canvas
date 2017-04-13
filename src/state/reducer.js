@@ -56,3 +56,9 @@ export const reducer = handleActions({
     matrix: zoom(action.payload.dy, state.matrix)
   })
 }, initialState)
+
+// @NOTE All of the above applies to the canvas as canvas-transformations.
+// Need to reuse panning for element-based transformations.
+// Reuse basic matrix math for element-based transformations.
+// Place element data in a collection in state.
+// Determine whether the click happens on the element or the canvas.
