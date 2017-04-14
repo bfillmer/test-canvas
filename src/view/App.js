@@ -4,34 +4,34 @@ import {connect} from 'react-redux'
 
 import {actions} from 'state/reducer'
 
+import {Viewport} from 'view/Viewport'
+
 const mapStateToProps = (state) => ({
-  viewbox: state.viewbox,
-  matrix: state.matrix,
-  dragging: state.dragging
+  dragging: state.dragging,
+  svg: state.svg
 })
 
-const Container = ({dispatch, viewbox, matrix, dragging}) => {
-  const onDragStart = (e) => dispatch(actions.startDrag(e.clientX, e.clientY))
-  const onDragMove = (e) => dragging ? dispatch(actions.dragging(e.clientX, e.clientY)) : null
-  const onDragEnd = () => dispatch(actions.endDrag())
-  const onWheel = (e) => dispatch(actions.zooming(e.deltaY))
+const Container = ({dispatch, dragging, svg}) => {
+  const onDragStart = (e) => dispatch(actions.startDrag(e.clientX, e.clientY, e.target.id))
+  const onDragMove = (e) => dragging ? dispatch(actions.dragging(e.clientX, e.clientY, e.target.id)) : null
+  const onDragEnd = (e) => dispatch(actions.endDrag(e.target.id))
+  const onWheel = (e) => dispatch(actions.zooming(e.deltaY, 'viewport'))
+  const viewportMatrix = svg.filter(svg => svg.id === 'viewport').reduce((acc, val) => val.matrix.join(' '), [])
+
+  const viewportProps = {
+    onDragStart,
+    onDragMove,
+    onDragEnd,
+    onWheel,
+    viewportMatrix
+  }
+
+  const circles = svg.filter(s => s.id !== 'viewport').map(s => <circle id={s.id} transform={`matrix(${s.matrix.join(' ')})`} r='20' fill='teal' stroke='black' />)
 
   return (
-    <svg
-      width='100%'
-      height='100%'
-      onMouseDown={onDragStart}
-      onMouseMove={onDragMove}
-      onMouseUp={onDragEnd}
-      onWheel={onWheel}
-      viewBox={viewbox.join(' ')}
-      preserveAspectRatio='xMidYMid slice'
-    >
-      <g transform={`matrix(${matrix.join(' ')})`}>
-        <circle r='20' transform='matrix(1 0 0 1 -10 -10)' fill='teal' stroke='black' />
-        <circle r='20' transform='matrix(1 0 0 1 20 20)' fill='teal' stroke='black' />
-      </g>
-    </svg>
+    <Viewport {...viewportProps}>
+      {circles}
+    </Viewport>
   )
 }
 
