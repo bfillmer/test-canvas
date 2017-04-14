@@ -19,7 +19,8 @@ export const actions = {
 
 // REDUCERS
 const initialState = {
-  matrix: [1, 0, 0, 1, 100, 100],
+  viewbox: [-(1440 / 2), -(960 / 2), 1440, 960],
+  matrix: [1, 0, 0, 1, 0, 0],
   dragging: false
 }
 
@@ -28,11 +29,9 @@ const pan = (dx, dy, matrix) => matrix.map((n, i) => (i === 4) ? n + dx : (i ===
 
 // Scale all matrix properties when zooming.
 const zoom = (dy, matrix) => {
+  // Soom in or out based on the delta of the wheel scroll.
   const scale = dy < 0 ? 1.05 : 0.95
-  return matrix.map((n, i) => {
-    const scaledValue = n * scale
-    return (i === (4 || 5)) ? scaledValue + ((1 - scale) * 50) : scaledValue
-  })
+  return matrix.map((n, i) => n * scale)
 }
 
 export const reducer = handleActions({
@@ -62,3 +61,4 @@ export const reducer = handleActions({
 // Reuse basic matrix math for element-based transformations.
 // Place element data in a collection in state.
 // Determine whether the click happens on the element or the canvas.
+// Zoom based on center point. Convert all x/y coords relative to center?
