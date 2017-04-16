@@ -26,7 +26,7 @@ const Container = ({dispatch, dragging, svg}) => {
     viewportMatrix
   }
 
-  const circles = svg.filter(s => s.id !== 'viewport').map(s => <circle id={s.id} transform={`matrix(${s.matrix.join(' ')})`} r='20' fill='teal' stroke='black' />)
+  const circles = svg.filter(s => s.id !== 'viewport').map(s => <circle key={s.id} id={s.id} transform={`matrix(${s.matrix.join(' ')})`} r='20' fill='teal' stroke='black' />)
 
   return (
     <Viewport {...viewportProps}>

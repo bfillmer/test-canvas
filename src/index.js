@@ -8,10 +8,10 @@ import {App} from 'view/App'
 
 import {store} from 'state/store'
 
-const Container = () => (
+const Container = ({store}) => (
   <Provider store={store}>
     <App />
   </Provider>
 )
 
-ReactDOM.render(<Container />, document.getElementById('root'))
+ReactDOM.render(<Container store={store} />, document.getElementById('root'))
