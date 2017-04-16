@@ -1,0 +1,76 @@
+exports[`test loads initialState and renders 1`] = `
+<svg
+  height="100%"
+  id="viewport"
+  onMouseDown={[Function]}
+  onMouseMove={[Function]}
+  onMouseUp={[Function]}
+  onWheel={[Function]}
+  preserveAspectRatio="xMidYMid slice"
+  viewBox="-720 -480 1440 960"
+  width="100%">
+  <g
+    transform="matrix(1 0 0 1 0 0)">
+    <circle
+      fill="teal"
+      id="circle-one"
+      r="20"
+      stroke="black"
+      transform="matrix(1 0 0 1 -10 -10)" />
+    <circle
+      fill="teal"
+      id="circle-two"
+      r="20"
+      stroke="black"
+      transform="matrix(1 0 0 1 -10 40)" />
+    <circle
+      fill="teal"
+      id="circle-three"
+      r="20"
+      stroke="black"
+      transform="matrix(1 0 0 1 -10 -60)" />
+    <circle
+      fill="teal"
+      id="circle-four"
+      r="20"
+      stroke="black"
+      transform="matrix(1 0 0 1 80 -10)" />
+    <circle
+      fill="teal"
+      id="circle-five"
+      r="20"
+      stroke="black"
+      transform="matrix(1 0 0 1 80 40)" />
+    <circle
+      fill="teal"
+      id="circle-six"
+      r="20"
+      stroke="black"
+      transform="matrix(1 0 0 1 80 -60)" />
+    <circle
+      fill="teal"
+      id="circle-seven"
+      r="20"
+      stroke="black"
+      transform="matrix(1 0 0 1 35 -10)" />
+    <circle
+      fill="teal"
+      id="circle-eight"
+      r="20"
+      stroke="black"
+      transform="matrix(1 0 0 1 170 -10)" />
+    <circle
+      fill="teal"
+      id="circle-nine"
+      r="20"
+      stroke="black"
+      transform="matrix(1 0 0 1 170 40)" />
+    <circle
+      fill="teal"
+      id="circle-ten"
+      r="20"
+      stroke="black"
+      transform="matrix(1 0 0 1 170 -60)" />
+  </g>
+</svg>
+`;
