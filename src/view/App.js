@@ -13,7 +13,7 @@ const mapStateToProps = (state) => ({
 
 const Container = ({dispatch, dragging, svg}) => {
   const onDragStart = (e) => dispatch(actions.startDrag(e.clientX, e.clientY, e.target.id))
-  const onDragMove = (e) => dragging ? dispatch(actions.dragging(e.clientX, e.clientY, e.target.id)) : null
+  const onDragMove = (e) => dragging ? dispatch(actions.dragging(e.clientX, e.clientY)) : null
   const onDragEnd = (e) => dispatch(actions.endDrag(e.target.id))
   const onWheel = (e) => dispatch(actions.zooming(e.deltaY, 'viewport'))
   const viewportMatrix = svg.filter(svg => svg.id === 'viewport').reduce((acc, val) => val.matrix.join(' '), [])

@@ -34,6 +34,7 @@ export const actions = {
 // REDUCERS
 const initialState = {
   dragging: false,
+  scalar: 1,
   svg: [
     svgObject('viewport'),
     svgObject('circle-one', [1, 0, 0, 1, -10, -10]),
@@ -53,10 +54,7 @@ const initialState = {
 const pan = (dx, dy, matrix) => matrix.map((n, i) => (i === 4) ? n + dx : (i === 5) ? n + dy : n)
 
 // Soom in or out based on the delta of the wheel scroll.
-const zoom = (dy, matrix) => {
-  const scale = dy < 0 ? 1.05 : 0.95
-  return matrix.map((n, i) => n * scale)
-}
+const zoom = (scale, matrix) => matrix.map((n, i) => n * scale)
 
 export const reducer = handleActions({
   [DRAG_START]: (state, action) => {
@@ -74,8 +72,8 @@ export const reducer = handleActions({
     return assign({}, state, {
       svg: state.svg.map(svg => {
         if (svg.id !== state.dragging) return svg
-        const dx = x - svg.dragX
-        const dy = y - svg.dragY
+        const dx = (x - svg.dragX) / state.scalar
+        const dy = (y - svg.dragY) / state.scalar
         return assign({}, svg, {
           matrix: pan(dx, dy, svg.matrix),
           dragX: x,
@@ -87,7 +85,12 @@ export const reducer = handleActions({
   [DRAG_END]: (state, action) => assign({}, state, {
     dragging: false
   }),
-  [ZOOMED]: (state, action) => assign({}, state, {
-    svg: state.svg.map(svg => svg.id === action.payload.id ? assign({}, svg, { matrix: zoom(action.payload.dy, svg.matrix) }) : svg)
-  })
+  [ZOOMED]: (state, action) => {
+    const scale = action.payload.dy < 0 ? 1.05 : 0.95
+    const matrix = state.svg.reduce((array, svg) => svg.id === action.payload.id ? zoom(scale, svg.matrix) : array, [])
+    return assign({}, state, {
+      scalar: matrix[0],
+      svg: state.svg.map(svg => svg.id === action.payload.id ? assign({}, svg, { matrix }) : svg)
+    })
+  }
 }, initialState)
