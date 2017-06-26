@@ -1,6 +1,8 @@
 // @flow
 import {createAction} from 'redux-actions'
 
+import {DragStartPayload, DraggedPayload, ZoomedPayload} from 'state/types'
+
 // REDUX TYPES
 export const types = {
   DRAG_START: 'svg/DRAG_START',
@@ -9,40 +11,10 @@ export const types = {
   ZOOMED: 'svg/ZOOMED'
 }
 
-// FLOW TYPES
-// type DragStartAction = {
-//   type: string,
-//   payload: {
-//     x: number,
-//     y: number,
-//     id: string
-//   }
-// }
-//
-// type DragEndAction = {
-//   type: string
-// }
-//
-// type DraggedAction = {
-//   type: string,
-//   payload: {
-//     x: number,
-//     y: number
-//   }
-// }
-//
-// type ZoomedAction = {
-//   type: string,
-//   payload: {
-//     dy: number,
-//     id: string
-//   }
-// }
-
 // ACTIONS
 export const actions = {
-  startDrag: createAction(types.DRAG_START, (x: number, y: number, id: string) => ({x, y, id})),
+  startDrag: createAction(types.DRAG_START, (x: number, y: number, id: string): DragStartPayload => ({x, y, id})),
   endDrag: createAction(types.DRAG_END),
-  dragging: createAction(types.DRAGGED, (x: number, y: number) => ({x, y})),
-  zooming: createAction(types.ZOOMED, (dy: number, id: string) => ({dy, id}))
+  dragging: createAction(types.DRAGGED, (x: number, y: number): DraggedPayload => ({x, y})),
+  zooming: createAction(types.ZOOMED, (dy: number, id: string): ZoomedPayload => ({dy, id}))
 }

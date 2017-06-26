@@ -30,6 +30,6 @@
     "test": "NODE_PATH=src/ react-scripts test --env=jsdom",
     "lint": "standard ./src/*.js || true",
     "lint-fix": "standard ./src/*.js --fix || true",
-    "flow": "flow"
+    "flow": "NODE_PATH=src/ flow"
   }
 }

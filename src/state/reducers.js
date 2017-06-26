@@ -1,27 +1,21 @@
-
+// @flow
 import {handleActions} from 'redux-actions'
 
 import {types} from 'state/actions'
 import {assign} from 'state/utils'
 import {pan, zoom} from 'state/transformations'
 
-// @TODO Once our actions are typed with params/return this should be unneeded.
+import {DragStartPayload, DraggedPayload, ZoomedPayload, Svg, SvgState} from 'state/types'
+
 const svgObject = (
   id,
   matrix = [1, 0, 0, 1, 0, 0],
-  dragging = false,
   dragX = 0,
   dragY = 0
-) => ({
-  id,
-  dragging,
-  matrix,
-  dragX,
-  dragY
-})
+): Svg => ({id, matrix, dragX, dragY})
 
 // INITIAL STATE
-export const initialState = {
+export const initialState:SvgState = {
   dragging: false,
   scalar: 1,
   svg: [
@@ -40,10 +34,9 @@ export const initialState = {
 }
 
 // REDUCER
-// @TODO Pull out actual functions and clean them up a bit.
 export const reducer = handleActions({
-  [types.DRAG_START]: (state, action) => {
-    const {id, x, y} = action.payload
+  [types.DRAG_START]: (state, {payload}: {payload: DragStartPayload}) => {
+    const {id, x, y} = payload
     return assign({}, state, {
       dragging: id,
       svg: state.svg.map(svg => svg.id === id ? assign({}, svg, {
@@ -52,8 +45,8 @@ export const reducer = handleActions({
       }) : svg)
     })
   },
-  [types.DRAGGED]: (state, action) => {
-    const {x, y} = action.payload
+  [types.DRAGGED]: (state, {payload}: {payload: DraggedPayload}) => {
+    const {x, y} = payload
     return assign({}, state, {
       svg: state.svg.map(svg => {
         if (svg.id !== state.dragging) return svg
@@ -70,12 +63,13 @@ export const reducer = handleActions({
   [types.DRAG_END]: (state, action) => assign({}, state, {
     dragging: false
   }),
-  [types.ZOOMED]: (state, action) => {
-    const scale = action.payload.dy < 0 ? 1.05 : 0.95
-    const matrix = state.svg.reduce((array, svg) => svg.id === action.payload.id ? zoom(scale, svg.matrix) : array, [])
+  [types.ZOOMED]: (state, {payload}: {payload: ZoomedPayload}) => {
+    const {dy, id} = payload
+    const scale = dy < 0 ? 1.05 : 0.95
+    const matrix = state.svg.reduce((array, svg) => svg.id === id ? zoom(scale, svg.matrix) : array, [])
     return assign({}, state, {
       scalar: matrix[0],
-      svg: state.svg.map(svg => svg.id === action.payload.id ? assign({}, svg, { matrix }) : svg)
+      svg: state.svg.map(svg => svg.id === id ? assign({}, svg, { matrix }) : svg)
     })
   }
 }, initialState)
