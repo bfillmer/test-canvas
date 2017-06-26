@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "flow-bin": "^0.48.0",
     "react-scripts": "0.9.5",
-    "react-test-renderer": "^15.5.4"
+    "react-test-renderer": "^15.5.4",
+    "standard": "^9.0.2"
   },
   "dependencies": {
     "react": "^15.4.2",
@@ -12,7 +14,6 @@
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
     "redux-actions": "^2.0.1",
-    "standard": "^9.0.2",
     "tachyons": "^4.7.0"
   },
   "scripts": {
@@ -20,6 +21,7 @@
     "build": "NODE_PATH=src/ react-scripts build",
     "test": "NODE_PATH=src/ react-scripts test --env=jsdom",
     "lint": "standard ./src/*.js || true",
-    "lint-fix": "standard ./src/*.js --fix || true"
+    "lint-fix": "standard ./src/*.js --fix || true",
+    "flow": "flow"
   }
 }

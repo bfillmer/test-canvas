@@ -1,7 +1,7 @@
 
 import {createStore, compose} from 'redux'
 
-import {reducer} from 'state/reducer'
+import {reducer} from 'state/reducers'
 
 // Use Redux DevTools Extension if available and not in production.
 const composeEnhancers = ((process.env.NODE_ENV !== 'production') && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose

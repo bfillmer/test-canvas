@@ -1,8 +1,11 @@
 
-import {createAction, handleActions} from 'redux-actions'
+import {handleActions} from 'redux-actions'
 
-const assign = Object.assign
+import {types} from 'state/actions'
+import {assign} from 'state/utils'
+import {pan, zoom} from 'state/transformations'
 
+// @TODO Once our actions are typed with params/return this should be unneeded.
 const svgObject = (
   id,
   matrix = [1, 0, 0, 1, 0, 0],
@@ -17,22 +20,8 @@ const svgObject = (
   dragY
 })
 
-// TYPES
-const DRAG_START = 'svg/DRAG_START'
-const DRAG_END = 'svg/DRAG_END'
-const DRAGGED = 'svg/DRAGGED'
-const ZOOMED = 'svg/ZOOMED'
-
-// ACTIONS
-export const actions = {
-  startDrag: createAction(DRAG_START, (x, y, id) => ({x, y, id})),
-  endDrag: createAction(DRAG_END),
-  dragging: createAction(DRAGGED, (x, y) => ({x, y})),
-  zooming: createAction(ZOOMED, (dy, id) => ({dy, id}))
-}
-
-// REDUCERS
-const initialState = {
+// INITIAL STATE
+export const initialState = {
   dragging: false,
   scalar: 1,
   svg: [
@@ -50,14 +39,8 @@ const initialState = {
   ]
 }
 
-// Update x, y in our matrix array with the delta x/y from moving.
-const pan = (dx, dy, matrix) => matrix.map((n, i) => (i === 4) ? n + dx : (i === 5) ? n + dy : n)
-
-// Soom in or out based on the delta of the wheel scroll.
-const zoom = (scale, matrix) => matrix.map((n, i) => n * scale)
-
 export const reducer = handleActions({
-  [DRAG_START]: (state, action) => {
+  [types.DRAG_START]: (state, action) => {
     const {id, x, y} = action.payload
     return assign({}, state, {
       dragging: id,
@@ -67,7 +50,7 @@ export const reducer = handleActions({
       }) : svg)
     })
   },
-  [DRAGGED]: (state, action) => {
+  [types.DRAGGED]: (state, action) => {
     const {x, y} = action.payload
     return assign({}, state, {
       svg: state.svg.map(svg => {
@@ -82,10 +65,10 @@ export const reducer = handleActions({
       })
     })
   },
-  [DRAG_END]: (state, action) => assign({}, state, {
+  [types.DRAG_END]: (state, action) => assign({}, state, {
     dragging: false
   }),
-  [ZOOMED]: (state, action) => {
+  [types.ZOOMED]: (state, action) => {
     const scale = action.payload.dy < 0 ? 1.05 : 0.95
     const matrix = state.svg.reduce((array, svg) => svg.id === action.payload.id ? zoom(scale, svg.matrix) : array, [])
     return assign({}, state, {
