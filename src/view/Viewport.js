@@ -29,10 +29,10 @@ const Container = ({
     width='100%'
     height='100%'
     id='viewport'
-    onMouseDown={e => onDragStart(e)}
+    onMouseDown={onDragStart}
     onMouseMove={e => onDragMove(e, dragging)}
-    onMouseUp={e => onDragEnd(e)}
-    onWheel={e => onWheel(e)}
+    onMouseUp={onDragEnd}
+    onWheel={onWheel}
     viewBox={[-(1440 / 2), -(960 / 2), 1440, 960].join(' ')}
     preserveAspectRatio='xMidYMid slice'
   >
