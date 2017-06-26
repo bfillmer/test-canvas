@@ -7,10 +7,10 @@ import {pan, zoom} from 'state/transformations'
 
 import {DragStartPayload, DraggedPayload, ZoomedPayload, Svg, SvgState} from 'state/types'
 
-const svgObject = (id, matrix = [1, 0, 0, 1, 0, 0], dragX = 0, dragY = 0): Svg => ({id, matrix, dragX, dragY})
+export const svgObject = (id: string, matrix: number[] = [1, 0, 0, 1, 0, 0], dragX: number = 0, dragY: number = 0): Svg => ({id, matrix, dragX, dragY})
 
 // INITIAL STATE
-export const initialState: SvgState = {
+const initialState: SvgState = {
   dragging: false,
   scalar: 1,
   svg: [
