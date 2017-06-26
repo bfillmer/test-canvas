@@ -39,6 +39,8 @@ export const initialState = {
   ]
 }
 
+// REDUCER
+// @TODO Pull out actual functions and clean them up a bit.
 export const reducer = handleActions({
   [types.DRAG_START]: (state, action) => {
     const {id, x, y} = action.payload

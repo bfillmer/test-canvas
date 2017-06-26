@@ -2,11 +2,18 @@
   "name": "tyr",
   "version": "0.1.0",
   "private": true,
+  "standard": {
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ]
+  },
   "devDependencies": {
+    "eslint": "^4.1.1",
+    "eslint-plugin-flowtype": "^2.34.0",
     "flow-bin": "^0.48.0",
     "react-scripts": "0.9.5",
-    "react-test-renderer": "^15.5.4",
-    "standard": "^9.0.2"
+    "react-test-renderer": "^15.5.4"
   },
   "dependencies": {
     "react": "^15.4.2",
