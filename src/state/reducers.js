@@ -7,15 +7,10 @@ import {pan, zoom} from 'state/transformations'
 
 import {DragStartPayload, DraggedPayload, ZoomedPayload, Svg, SvgState} from 'state/types'
 
-const svgObject = (
-  id,
-  matrix = [1, 0, 0, 1, 0, 0],
-  dragX = 0,
-  dragY = 0
-): Svg => ({id, matrix, dragX, dragY})
+const svgObject = (id, matrix = [1, 0, 0, 1, 0, 0], dragX = 0, dragY = 0): Svg => ({id, matrix, dragX, dragY})
 
 // INITIAL STATE
-export const initialState:SvgState = {
+export const initialState: SvgState = {
   dragging: false,
   scalar: 1,
   svg: [
@@ -35,20 +30,20 @@ export const initialState:SvgState = {
 
 // REDUCER
 export const reducer = handleActions({
-  [types.DRAG_START]: (state, {payload}: {payload: DragStartPayload}) => {
+  [types.DRAG_START]: (state: SvgState, {payload}: {payload: DragStartPayload}): SvgState => {
     const {id, x, y} = payload
     return assign({}, state, {
       dragging: id,
-      svg: state.svg.map(svg => svg.id === id ? assign({}, svg, {
+      svg: state.svg.map((svg: Svg) => svg.id === id ? assign({}, svg, {
         dragX: x,
         dragY: y
       }) : svg)
     })
   },
-  [types.DRAGGED]: (state, {payload}: {payload: DraggedPayload}) => {
+  [types.DRAGGED]: (state: SvgState, {payload}: {payload: DraggedPayload}): SvgState => {
     const {x, y} = payload
     return assign({}, state, {
-      svg: state.svg.map(svg => {
+      svg: state.svg.map((svg: Svg) => {
         if (svg.id !== state.dragging) return svg
         const dx = (x - svg.dragX) / state.scalar
         const dy = (y - svg.dragY) / state.scalar
@@ -60,16 +55,16 @@ export const reducer = handleActions({
       })
     })
   },
-  [types.DRAG_END]: (state, action) => assign({}, state, {
+  [types.DRAG_END]: (state: SvgState): SvgState => assign({}, state, {
     dragging: false
   }),
-  [types.ZOOMED]: (state, {payload}: {payload: ZoomedPayload}) => {
+  [types.ZOOMED]: (state: SvgState, {payload}: {payload: ZoomedPayload}): SvgState => {
     const {dy, id} = payload
     const scale = dy < 0 ? 1.05 : 0.95
-    const matrix = state.svg.reduce((array, svg) => svg.id === id ? zoom(scale, svg.matrix) : array, [])
+    const matrix = state.svg.reduce((array: number[], svg: Svg) => svg.id === id ? zoom(scale, svg.matrix) : array, [])
     return assign({}, state, {
       scalar: matrix[0],
-      svg: state.svg.map(svg => svg.id === id ? assign({}, svg, { matrix }) : svg)
+      svg: state.svg.map((svg: Svg) => svg.id === id ? assign({}, svg, { matrix }) : svg)
     })
   }
 }, initialState)
