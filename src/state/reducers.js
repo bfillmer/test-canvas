@@ -30,9 +30,7 @@ const initialState: SvgState = {
   scalar: 1,
   svg: [
     svgObject('viewport', VIEWPORT),
-    svgObject('block-one', BLOCK, [1, 0, 0, 1, -10, -10]),
-    svgObject('block-two', BLOCK, [1, 0, 0, 1, -10, 40]),
-    svgObject('block-three', BLOCK, [1, 0, 0, 1, -10, -60])
+    svgObject('block-one', BLOCK, [1, 0, 0, 1, 0, 0])
   ]
 }
 
