@@ -40,7 +40,7 @@ const Container = ({scalar, viewportMatrix}) => {
   console.log(lines.length)
 
   return (
-    <g id='viewport' transform={`matrix(${[1, 0, 0, 1, centerX, centerY].join(' ')})`}>
+    <g id='viewport' transform={`matrix(${[1, 0, 0, 1, 0, 0].join(' ')})`}>
       {lines}
     </g>
   )
