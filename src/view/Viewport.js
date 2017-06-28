@@ -4,8 +4,6 @@ import {connect} from 'react-redux'
 
 import {actions} from 'state/actions'
 
-import {Grid} from 'view/Grid'
-
 const mapStateToProps = state => ({
   dragging: state.dragging,
   viewportMatrix: state.svg.filter(svg => svg.id === 'viewport').reduce((acc, val) => val.matrix.join(' '), [])
@@ -28,6 +26,7 @@ const Container = ({
   children
 }) => (
   <svg
+    id='viewport'
     width='100%'
     height='100%'
     onMouseDown={onDragStart}
@@ -37,7 +36,6 @@ const Container = ({
     viewBox={[-(1440 / 2), -(960 / 2), 1440, 960].join(' ')}
     preserveAspectRatio='xMidYMid slice'
   >
-    <Grid />
     <g transform={`matrix(${viewportMatrix})`}>
       {children}
     </g>

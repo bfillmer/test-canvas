@@ -21,8 +21,8 @@ export const svgObject = (
   dragY
 })
 
-const VIEWPORT = 'VIEWPORT'
-const BLOCK = 'BLOCK'
+export const VIEWPORT = 'VIEWPORT'
+export const BLOCK = 'BLOCK'
 
 // INITIAL STATE
 const initialState: SvgState = {
@@ -30,7 +30,8 @@ const initialState: SvgState = {
   scalar: 1,
   svg: [
     svgObject('viewport', VIEWPORT),
-    svgObject('block-one', BLOCK, [1, 0, 0, 1, 0, 0])
+    svgObject('block-one', BLOCK, [1, 0, 0, 1, 0, 0]),
+    svgObject('block-two', BLOCK, [1, 0, 0, 1, 50, 0]),
   ]
 }
 
