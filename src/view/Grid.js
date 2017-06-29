@@ -41,11 +41,11 @@ const Container = ({scalar, viewportMatrix}) => {
   const lines = []
 
   for (let n = left; n <= right; n += gridSize) {
-    lines.push(<line key={`${n}-v`} x1={n} x2={n} y1={top} y2={bottom} stroke='#ddd' fill='none' strokeWidth='2' />)
+    lines.push(<line key={`${n}-v`} x1={n} x2={n} y1={top} y2={bottom} stroke='#fff' fill='none' strokeWidth='2' />)
   }
 
   for (let n = top; n <= bottom; n += gridSize) {
-    lines.push(<line key={`${n}-h`} x1={left} x2={right} y1={n} y2={n} stroke='#ddd' fill='none' strokeWidth='2' />)
+    lines.push(<line key={`${n}-h`} x1={left} x2={right} y1={n} y2={n} stroke='#fff' fill='none' strokeWidth='2' />)
   }
 
   // id set to viewport so that drag events fire and update the viewport matrix.

@@ -40,25 +40,43 @@ const initialState: SvgState = {
 export const reducer = handleActions({
   [types.DRAG_START]: (state: SvgState, {payload}: {payload: DragStartPayload}): SvgState => {
     const {id, x, y} = payload
+
+    // Transform to svg coordinate space
+    const svgObj = document.getElementById('viewport');
+    const matrix = svgObj.getScreenCTM();
+    const pt = svgObj.createSVGPoint();
+    pt.x = x;
+    pt.y = y;
+    const p = pt.matrixTransform(matrix.inverse());
+
     return assign({}, state, {
       dragging: id,
       svg: state.svg.map((svg: Svg) => svg.id === id ? assign({}, svg, {
-        dragX: x,
-        dragY: y
+        dragX: p.x,
+        dragY: p.y
       }) : svg)
     })
   },
   [types.DRAGGED]: (state: SvgState, {payload}: {payload: DraggedPayload}): SvgState => {
     const {x, y} = payload
+
+    // Transform to svg coordinate space
+    const svgObj = document.getElementById('viewport');
+    const matrix = svgObj.getScreenCTM();
+    const pt = svgObj.createSVGPoint();
+    pt.x = x;
+    pt.y = y;
+    const p = pt.matrixTransform(matrix.inverse());
+
     return assign({}, state, {
       svg: state.svg.map((svg: Svg) => {
         if (svg.id !== state.dragging) return svg
-        const dx = svg.type === 'VIEWPORT' ? (x - svg.dragX) : (x - svg.dragX) / state.scalar
-        const dy = svg.type === 'VIEWPORT' ? (y - svg.dragY) : (y - svg.dragY) / state.scalar
+        const dx = svg.type === 'VIEWPORT' ? (p.x - svg.dragX) : (p.x - svg.dragX) / state.scalar
+        const dy = svg.type === 'VIEWPORT' ? (p.y - svg.dragY) : (p.y - svg.dragY) / state.scalar
         return assign({}, svg, {
           matrix: pan(dx, dy, svg.matrix),
-          dragX: x,
-          dragY: y
+          dragX: p.x,
+          dragY: p.y
         })
       })
     })
