@@ -2,12 +2,12 @@
 import React from 'react'
 
 import {Viewport} from 'view/Viewport'
-import {Circles} from 'view/Circles'
+import {Blocks} from 'view/Blocks'
 import {Grid} from 'view/Grid'
 
 export const App = () => (
   <Viewport>
     <Grid />
-    <Circles />
+    <Blocks />
   </Viewport>
 )
