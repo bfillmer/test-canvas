@@ -13,15 +13,28 @@ const mapStateToProps = state => ({
   })
 })
 
-const point = (x, y) => (`${x},${y}`)
+const point = ([x, y]) => (`${x},${y}`)
 
 const Container = ({lines}) => {
   const renderLines = lines.map(({a, b}, key) => {
+    const [aX, aY, bX, bY] = [a[4], a[5], b[4], b[5]]
+    // Calculate total movement in x & y directions. [DONE]
+    // Whichever is longer, move half that direction. [DONE]
+    // Then the total distance in the other direction. [DONE]
+    // Then finish up the rest of the way. [DONE]
+    const p1 = [aX, aY]
+    const [mX, mY] = [(aX + bX) / 2, (aY + bY) / 2]
+    const [diffX, diffY] = [Math.abs(bX - aX), Math.abs(bY - aY)]
+    const p2 = (diffX > diffY) ? [mX, aY] : [aX, mY]
+    const p3 = (diffX > diffY) ? [mX, bY] : [bX, mY]
+    const p4 = [bX, bY]
     const points = [
-      point(a[4], a[5]),
-      point(b[4], b[5])
+      point(p1),
+      point(p2),
+      point(p3),
+      point(p4)
     ]
-    return <polyline key={key} fill='none' stroke='#333' strokeWidth='2' points={points.join(' ')} />
+    return <polyline key={key} fill='none' stroke='#333' strokeWidth='4' strokeLinejoin='round' points={points.join(' ')} />
   })
   return (
     <g id='viewport'>

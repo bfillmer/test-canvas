@@ -38,8 +38,8 @@ const initialState: SvgState = {
   svg: [
     svgObject('viewport', VIEWPORT),
     svgObject('block-one', BLOCK, [1, 0, 0, 1, 0, 0]),
-    svgObject('block-two', BLOCK, [1, 0, 0, 1, 0, 200]),
-    svgObject('block-three', BLOCK, [1, 0, 0, 1, 0, -200])
+    svgObject('block-two', BLOCK, [1, 0, 0, 1, 50, 200]),
+    svgObject('block-three', BLOCK, [1, 0, 0, 1, 100, -200])
   ],
   blocks: [
     block('block-one', 'block-two'),
