@@ -19,15 +19,15 @@ const halfHeight = viewboxHeight / 2
 const Container = ({scalar, viewportMatrix}) => {
   // Current Center Value
   const [centerX, centerY] = viewportMatrix.slice(4, 6)
-  const gridSize = 50 * scalar
+  const gridSize = 50
 
-  // Additional grid unit added to each bound to ensure grid scales to just outside the
-  // viewport.
+  // Additional grid unit added to each bound to ensure grid scales to just outside the viewport.
+  // Grid unit adjusted for scalar when added, then the bould is adjusted for scalar after.
   const bounds = {
-    left: (-(centerX + halfWidth) - gridSize) / scalar,
-    right: (halfWidth - centerX + gridSize) / scalar,
-    top: (-(centerY + halfHeight) - gridSize) / scalar,
-    bottom: (halfHeight - centerY + gridSize) / scalar
+    left: (-(centerX + halfWidth) - (gridSize * scalar)) / scalar,
+    right: ((halfWidth - centerX) + (gridSize * scalar)) / scalar,
+    top: (-(centerY + halfHeight) - (gridSize * scalar)) / scalar,
+    bottom: ((halfHeight - centerY) + (gridSize * scalar)) / scalar
   }
 
   // Calculate the maximum lines from the center point to any given bound direction.
@@ -48,6 +48,7 @@ const Container = ({scalar, viewportMatrix}) => {
     lines.push(<line key={`${n}-h`} x1={left} x2={right} y1={n} y2={n} stroke='#ddd' fill='none' strokeWidth='2' />)
   }
 
+  // id set to viewport so that drag events fire and update the viewport matrix.
   return (
     <g id='viewport' transform={`matrix(${[1, 0, 0, 1, 0, 0].join(' ')})`}>
       {lines}

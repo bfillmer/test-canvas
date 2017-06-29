@@ -53,8 +53,8 @@ export const reducer = handleActions({
     return assign({}, state, {
       svg: state.svg.map((svg: Svg) => {
         if (svg.id !== state.dragging) return svg
-        const dx = (x - svg.dragX) / state.scalar
-        const dy = (y - svg.dragY) / state.scalar
+        const dx = (x - svg.dragX)
+        const dy = (y - svg.dragY)
         return assign({}, svg, {
           matrix: pan(dx, dy, svg.matrix),
           dragX: x,
