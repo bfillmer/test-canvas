@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
   viewportMatrix: state.svg.filter(svg => svg.id === 'viewport').reduce((acc, val) => val.matrix, [])
 })
 
+// Viewport constants. Need to be set and leveraged both in Grid and Viewport.
 const baseWidth = 1440
 const baseHeight = 960
 const viewboxWidth = baseWidth
@@ -48,10 +49,13 @@ const Container = ({scalar, viewportMatrix}) => {
     lines.push(<line key={`${n}-h`} x1={left} x2={right} y1={n} y2={n} stroke='#ddd' fill='none' strokeWidth='2' />)
   }
 
+  const center = (<circle cx='0' cy='0' r='6' stroke='#ddd' strokeWidth='1' fill='#ddd' />)
+
   // id set to viewport so that drag events fire and update the viewport matrix.
   return (
     <g id='viewport' transform={`matrix(${[1, 0, 0, 1, 0, 0].join(' ')})`}>
       {lines}
+      {center}
     </g>
   )
 }

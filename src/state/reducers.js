@@ -53,6 +53,8 @@ export const reducer = handleActions({
     return assign({}, state, {
       svg: state.svg.map((svg: Svg) => {
         if (svg.id !== state.dragging) return svg
+        // Handle viewport differently as it controls the scale for all sub coordinate systems,
+        // but doesn't need to scale it's own coordinate system.
         const dx = svg.type === 'VIEWPORT' ? (x - svg.dragX) : (x - svg.dragX) / state.scalar
         const dy = svg.type === 'VIEWPORT' ? (y - svg.dragY) : (y - svg.dragY) / state.scalar
         return assign({}, svg, {
