@@ -40,6 +40,8 @@ const initialState: SvgState = {
 export const reducer = handleActions({
   [types.DRAG_START]: (state: SvgState, {payload}: {payload: DragStartPayload}): SvgState => {
     const {id, x, y} = payload
+    // const pt = transformPos(x, y)
+
     return assign({}, state, {
       dragging: id,
       svg: state.svg.map((svg: Svg) => svg.id === id ? assign({}, svg, {
@@ -50,6 +52,8 @@ export const reducer = handleActions({
   },
   [types.DRAGGED]: (state: SvgState, {payload}: {payload: DraggedPayload}): SvgState => {
     const {x, y} = payload
+    // const pt = transformPos(x, y)
+
     return assign({}, state, {
       svg: state.svg.map((svg: Svg) => {
         if (svg.id !== state.dragging) return svg
