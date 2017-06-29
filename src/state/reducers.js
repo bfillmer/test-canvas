@@ -24,6 +24,13 @@ export const svgObject = (
 export const VIEWPORT = 'VIEWPORT'
 export const BLOCK = 'BLOCK'
 
+type Block = {
+  id: string,
+  dependsOn: string
+}
+
+const block = (id: string, dependsOn: string = ''): Block => ({id, dependsOn})
+
 // INITIAL STATE
 const initialState: SvgState = {
   dragging: false,
@@ -33,6 +40,11 @@ const initialState: SvgState = {
     svgObject('block-one', BLOCK, [1, 0, 0, 1, 0, 0]),
     svgObject('block-two', BLOCK, [1, 0, 0, 1, 0, 200]),
     svgObject('block-three', BLOCK, [1, 0, 0, 1, 0, -200])
+  ],
+  blocks: [
+    block('block-one', 'block-two'),
+    block('block-two'),
+    block('block-three', 'block-one')
   ]
 }
 
