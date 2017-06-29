@@ -29,15 +29,22 @@ const Container = ({scalar, viewportMatrix}) => {
 
   const lines = []
 
-  for (let n = 0; n <= halfWidth; n = n + gridSize) {
+  // centerX + halfWidth
+
+  // Lines to the right of center.
+  for (let n = 0; n <= halfWidth - centerX; n = n + gridSize) {
     lines.push(<line key={`${n}-r`} x1={n} x2={n} y1={-halfHeight} y2={halfHeight} stroke='#a00' fill='none' strokeWidth='2' />)
-    // Do not duplicate the center line.
-    if (n !== centerX) {
-      lines.push(<line key={`${n}-l`} x1={-n} x2={-n} y1={-halfHeight} y2={halfHeight} stroke='#a00' fill='none' strokeWidth='2' />)
-    }
   }
 
-  console.log(lines.length)
+  // Lines to the left of center.
+  // for (let n = 0; n <= halfWidth; n = n + gridSize) {
+  //   // Do not duplicate the center line.
+  //   if (n !== centerX) {
+  //     lines.push(<line key={`${n}-l`} x1={-n} x2={-n} y1={-halfHeight} y2={halfHeight} stroke='#a00' fill='none' strokeWidth='2' />)
+  //   }
+  // }
+
+  console.log('Center', centerX, centerY, 'Number of Lines', lines.length)
 
   return (
     <g id='viewport' transform={`matrix(${[1, 0, 0, 1, 0, 0].join(' ')})`}>
