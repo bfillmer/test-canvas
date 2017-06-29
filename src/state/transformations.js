@@ -5,7 +5,17 @@ export const pan = (dx: number, dy: number, matrix: number[]): number[] => matri
   (n: number, i: number) => (i === 4) ? n + dx : (i === 5) ? n + dy : n
 )
 
-// Soom in or out based on the delta of the wheel scroll.
+// Zoom in or out based on the delta of the wheel scroll.
 export const zoom = (scale: number, matrix: number[]): number[] => matrix.map(
   (n: number, i: number) => n * scale
 )
+
+// Transform DOM mouse position to SVG coordinate space
+export const transformPos = (x, y) => {
+  const svgObj = document.getElementById('viewport');
+  const matrix = svgObj.getScreenCTM()
+  const pt = svgObj.createSVGPoint()
+  pt.x = x
+  pt.y = y
+  return pt.matrixTransform(matrix.inverse())
+}
