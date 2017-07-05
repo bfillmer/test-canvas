@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
 
 const point = ([x, y]) => (`${x},${y}`)
 
+// @TODO Move point logic to state functions.
 const Container = ({lines}) => {
   const renderLines = lines.map(({a, b}, key) => {
     const [aX, aY, bX, bY] = [a[4], a[5], b[4], b[5]]

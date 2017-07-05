@@ -50,9 +50,9 @@ describe('Svg Reducer Functions', () => {
       scalar: 1,
       svg: [{
         id: svgId,
-        matrix: [1, 0, 0, 1, 20, 30],
-        dragX: 20,
-        dragY: 30
+        matrix: [1, 0, 0, 1, x, y],
+        dragX: x,
+        dragY: y
       }]
     }
     const action = actions.dragging(x, y)

@@ -16,6 +16,12 @@ const mapDispatchToProps = (dispatch, props) => ({
   onWheel: e => dispatch(actions.zooming(e.deltaY, 'viewport'))
 })
 
+// @TODO The rendered size of the svg needs to be used for the viewbox computations.
+// We could pass this along as props to things like the grid, or store in redux state.
+// We probably also want to consider what the scalar should be like depending on viewBox
+// dimensions. Likely we would establish default breakpoints for that, then obviously
+// override any scalar with one pulled from an API if we were storing editor state.
+// react-measure can give us bounds on render, and takes an onResize callback.
 const Container = ({
   dragging,
   onDragStart,

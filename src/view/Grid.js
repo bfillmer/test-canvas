@@ -8,10 +8,8 @@ const mapStateToProps = state => ({
 })
 
 // Viewport constants. Need to be set and leveraged both in Grid and Viewport.
-const baseWidth = 1440
-const baseHeight = 960
-const viewboxWidth = baseWidth
-const viewboxHeight = baseHeight
+const viewboxWidth = 1440
+const viewboxHeight = 960
 const halfWidth = viewboxWidth / 2
 const halfHeight = viewboxHeight / 2
 
