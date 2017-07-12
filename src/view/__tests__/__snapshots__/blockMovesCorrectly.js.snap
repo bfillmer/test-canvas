@@ -1,0 +1,518 @@
+exports[`test canvas loads and a block is moved 1`] = `
+<svg
+  height="100%"
+  id="viewport"
+  onMouseDown={[Function]}
+  onMouseMove={[Function]}
+  onMouseUp={[Function]}
+  onWheel={[Function]}
+  preserveAspectRatio="xMidYMid slice"
+  viewBox="-720 -480 1440 960"
+  width="100%">
+  <g
+    transform="matrix(1 0 0 1 0 0)">
+    <g
+      id="viewport"
+      transform="matrix(1 0 0 1 0 0)">
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={-750}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-700}
+        x2={-700}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-650}
+        x2={-650}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-600}
+        x2={-600}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-550}
+        x2={-550}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-500}
+        x2={-500}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-450}
+        x2={-450}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-400}
+        x2={-400}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-350}
+        x2={-350}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-300}
+        x2={-300}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-250}
+        x2={-250}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-200}
+        x2={-200}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-150}
+        x2={-150}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-100}
+        x2={-100}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-50}
+        x2={-50}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={0}
+        x2={0}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={50}
+        x2={50}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={100}
+        x2={100}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={150}
+        x2={150}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={200}
+        x2={200}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={250}
+        x2={250}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={300}
+        x2={300}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={350}
+        x2={350}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={400}
+        x2={400}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={450}
+        x2={450}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={500}
+        x2={500}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={550}
+        x2={550}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={600}
+        x2={600}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={650}
+        x2={650}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={700}
+        x2={700}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={750}
+        x2={750}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={800}
+        x2={800}
+        y1={-500}
+        y2={550} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={-500}
+        y2={-500} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={-450}
+        y2={-450} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={-400}
+        y2={-400} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={-350}
+        y2={-350} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={-300}
+        y2={-300} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={-250}
+        y2={-250} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={-200}
+        y2={-200} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={-150}
+        y2={-150} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={-100}
+        y2={-100} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={-50}
+        y2={-50} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={0}
+        y2={0} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={50}
+        y2={50} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={100}
+        y2={100} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={150}
+        y2={150} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={200}
+        y2={200} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={250}
+        y2={250} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={300}
+        y2={300} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={350}
+        y2={350} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={400}
+        y2={400} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={450}
+        y2={450} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={500}
+        y2={500} />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        x1={-750}
+        x2={800}
+        y1={550}
+        y2={550} />
+      <circle
+        cx="0"
+        cy="0"
+        fill="#ddd"
+        r="6"
+        stroke="#ddd"
+        strokeWidth="1" />
+    </g>
+    <g
+      id="viewport">
+      <polyline
+        fill="none"
+        points="50,200 50,94 -121,94 -121,-12"
+        stroke="#333"
+        strokeLinejoin="round"
+        strokeWidth="4" />
+      <polyline
+        fill="none"
+        points="-121,-12 -10.5,-12 -10.5,-200 100,-200"
+        stroke="#333"
+        strokeLinejoin="round"
+        strokeWidth="4" />
+    </g>
+    <g>
+      <g
+        transform="matrix(1 0 0 1 -121 -12)">
+        <rect
+          fill="#ccc"
+          height="100"
+          id="block-one"
+          rx="6"
+          ry="6"
+          stroke="#666"
+          strokeWidth="2"
+          width="150"
+          x="-75"
+          y="-50" />
+      </g>
+      <g
+        transform="matrix(1 0 0 1 50 200)">
+        <rect
+          fill="#ccc"
+          height="100"
+          id="block-two"
+          rx="6"
+          ry="6"
+          stroke="#666"
+          strokeWidth="2"
+          width="150"
+          x="-75"
+          y="-50" />
+      </g>
+      <g
+        transform="matrix(1 0 0 1 100 -200)">
+        <rect
+          fill="#ccc"
+          height="100"
+          id="block-three"
+          rx="6"
+          ry="6"
+          stroke="#666"
+          strokeWidth="2"
+          width="150"
+          x="-75"
+          y="-50" />
+      </g>
+    </g>
+  </g>
+</svg>
+`;
